@@ -15,13 +15,14 @@ import com.nathanseixeiro.dsmeta.services.SaleServices;
 @RequestMapping(value = "/sales")
 public class SaleController {
 
+	
     @Autowired
     private SaleServices service;
 
     @GetMapping
     public Page<Sales> findSales(
             @RequestParam(value = "minDate", defaultValue = "") String minDate,
-            @RequestParam(value = "mDate", defaultValue = "") String maxDate,
+            @RequestParam(value = "maxDate", defaultValue = "") String maxDate,
             Pageable pageable) {
         return service.findSales(minDate, maxDate, pageable);
     }
